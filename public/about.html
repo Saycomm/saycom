@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О нас - Saycom Company</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .about-hero {
+            text-align: center;
+            padding: 120px 20px 60px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        .about-hero::after {
+            content: '';
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px; height: 800px;
+            background: radial-gradient(circle, rgba(252, 85, 88, 0.15) 0%, transparent 60%);
+            z-index: -1;
+            border-radius: 50%;
+        }
+        .about-hero h1 {
+            font-size: 50px;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, #fff, #fc5558);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .about-hero p {
+            font-size: 20px;
+            color: #ccc;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .mission-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 20px;
+            align-items: center;
+        }
+        .mission-text {
+            flex: 1;
+            min-width: 300px;
+            color: white;
+        }
+        .mission-text h2 {
+            font-size: 36px;
+            margin-bottom: 25px;
+            color: #fc5558;
+        }
+        .mission-text p {
+            font-size: 18px;
+            color: #aaa;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        .mission-visual {
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+            height: 350px;
+            background: #111;
+            border-radius: 30px;
+            border: 1px solid #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            overflow: hidden;
+        }
+        .mission-visual i {
+            font-size: 150px;
+            color: #fc5558;
+            opacity: 0.8;
+            animation: float 4s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 100px auto;
+            padding: 0 20px;
+        }
+        .feature-card {
+            background: #151515;
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid #222;
+            transition: 0.4s;
+        }
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: #fc5558;
+            box-shadow: 0 15px 30px rgba(252, 85, 88, 0.15);
+        }
+        .feature-card i {
+            font-size: 60px;
+            color: #fc5558;
+            margin-bottom: 20px;
+        }
+        .feature-card h3 {
+            color: white;
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+        .feature-card p {
+            color: #888;
+            line-height: 1.5;
+            font-size: 15px;
+        }
+
+        .stats-banner {
+            background: linear-gradient(90deg, #111, #fc5558, #111);
+            padding: 60px 20px;
+            margin: 100px 0;
+            display: flex;
+            justify-content: center;
+            gap: 80px;
+            flex-wrap: wrap;
+        }
+        .stat-circle {
+            text-align: center;
+            color: white;
+        }
+        .stat-circle h2 {
+            font-size: 50px;
+            font-weight: 900;
+            margin-bottom: 10px;
+            text-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        }
+        .stat-circle p {
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .cta-section {
+            text-align: center;
+            margin: 100px auto 150px;
+            padding: 0 20px;
+        }
+        .cta-section h2 {
+            font-size: 36px;
+            color: white;
+            margin-bottom: 30px;
+        }
+        .cta-btn {
+            display: inline-block;
+            padding: 18px 50px;
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+            background: linear-gradient(90deg, #fc5558, #ff7e5f);
+            border-radius: 40px;
+            text-decoration: none;
+            box-shadow: 0 10px 25px rgba(252, 85, 88, 0.4);
+            transition: 0.3s;
+        }
+        .cta-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 35px rgba(252, 85, 88, 0.6);
+        }
+
+        /* Timeline Section */
+        .timeline-section {
+            max-width: 1000px;
+            margin: 100px auto;
+            padding: 20px;
+            position: relative;
+        }
+        .timeline-section h2 {
+            text-align: center;
+            font-size: 38px;
+            color: #fff;
+            margin-bottom: 60px;
+        }
+        .timeline {
+            position: relative;
+            margin: 0 auto;
+        }
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background: linear-gradient(180deg, #fc5558, #ff7e5f);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+            border-radius: 2px;
+        }
+        .timeline-item {
+            padding: 20px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        .timeline-item.left {
+            left: 0;
+        }
+        .timeline-item.right {
+            left: 50%;
+        }
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            background-color: #111;
+            border: 4px solid #fc5558;
+            top: 30px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        .timeline-item.right::after {
+            left: -10px;
+        }
+        .timeline-content {
+            padding: 30px;
+            background: rgba(17, 17, 17, 0.8);
+            backdrop-filter: blur(10px);
+            position: relative;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: 0.4s;
+        }
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            border-color: #fc5558;
+            box-shadow: 0 10px 30px rgba(252, 85, 88, 0.15);
+        }
+        .timeline-content h3 {
+            color: #fc5558;
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+        .timeline-content h4 {
+            color: white;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+        .timeline-content p {
+            color: #aaa;
+            line-height: 1.6;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            max-width: 900px;
+            margin: 100px auto;
+            padding: 20px;
+        }
+        .faq-section h2 {
+            text-align: center;
+            font-size: 38px;
+            color: #fff;
+            margin-bottom: 50px;
+        }
+        .faq-item {
+            background: rgba(20, 20, 20, 0.9);
+            border-radius: 15px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255,255,255,0.05);
+            overflow: hidden;
+        }
+        .faq-item summary {
+            padding: 25px 30px;
+            font-size: 20px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            list-style: none;
+            position: relative;
+            transition: 0.3s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+        .faq-item summary:hover {
+            color: #fc5558;
+            background: rgba(252, 85, 88, 0.05);
+        }
+        .faq-item summary::after {
+            content: '+';
+            font-size: 28px;
+            color: #fc5558;
+            transition: 0.3s;
+        }
+        .faq-item[open] summary::after {
+            content: '−';
+            transform: rotate(180deg);
+        }
+        .faq-answer {
+            padding: 0 30px 30px;
+            color: #bbb;
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        /* Responsive Adjustments */
+        @media screen and (max-width: 768px) {
+            .about-hero h1 { font-size: 38px; }
+            .about-hero p { font-size: 16px; }
+            .mission-text h2 { font-size: 32px; }
+            .mission-content { flex-direction: column; text-align: center; }
+            .stats-banner { flex-direction: column; gap: 40px; }
+            .feature-card { padding: 30px 20px; }
+            
+            .timeline::after { left: 31px; }
+            .timeline-item { width: 100%; padding-left: 70px; padding-right: 25px; }
+            .timeline-item.right { left: 0; }
+            .timeline-item.left::after, .timeline-item.right::after { left: 21px; }
+            
+            .faq-container { padding: 0 20px; }
+            .faq-item summary { font-size: 17px; padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Standard Nav -->
+    <div class="main-container">
+        <img src="assets/img/main-logo.png" class="main-logo" alt="Saycom Logo" onclick="window.location.href='index.html'" style="cursor: pointer;">
+        <div class="search-container">
+            <i class='bx bx-search'></i>
+            <input type="text" id="main-search-input" placeholder="Поиск товаров (например: камеры, кондиционеры)...">
+        </div>
+        <ul class="header-actions">
+            <li onclick="window.location.href='hert.html'">Избранное <i class='bx bxs-heart' style="color:#fc5558;"></i></li>
+            <li onclick="window.location.href='cart.html'">Корзина <i class='bx bxs-cart' style="color:#fc5558;"></i></li>
+            <li onclick="window.location.href='orders.html'">Мои Заказы <i class='bx bx-package' style="color:#fc5558;"></i></li>
+    </ul>
+    </div>
+
+    <div class="nav-container">
+        <ul class="main-menus">
+            <li onclick="window.location.href='index.html'">Главная</li>
+            <li onclick="window.location.href='category.html'">Категория</li>
+            <li onclick="window.location.href='all_product.html'">Товары</li>
+            <li onclick="window.location.href='installers.html'">Установщики</li>
+            <li style="color: #fd5658; border-bottom:.1px solid #fd5658;">О нас</li>
+            <li onclick="window.location.href='contacts.html'">Контакты</li>
+        </ul>
+    </div>
+
+    <!-- About Hero -->
+    <div class="about-hero">
+        <h1>Saycom <span style="font-weight: 300;">Company</span></h1>
+        <p>Более 23 лет мы создаём безопасность и комфорт. Ведущий интегратор систем видеонаблюдения, интеллектуальных домофонов, автоматических ворот и климатического оборудования на рынке.</p>
+    </div>
+
+    <!-- Mission & History -->
+    <div class="mission-section">
+        <div class="mission-visual">
+            <i class='bx bx-fingerprint'></i>
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle, transparent, #111 70%);"></div>
+        
+    </div>
+        <div class="mission-text">
+            <h2>Наша Философия</h2>
+            <p>В мире, где надежность и безопасность становятся главными приоритетами, <b>Saycom Company</b> является вашим верным защитником. Наша история началась с простой идеи — обеспечить каждому дому и бизнесу непревзойденное чувство защищенности.</p>
+            <p>Сегодня, под руководством нашего директора <b>Юсупбаева Кдрата</b>, мы сдали более 5000+ успешных объектов. Мы не просто продаем оборудование — мы создаем комплексные экосистемы комфорта, объединяя современные технологии с высочайшим качеством монтажа.</p>
+        </div>
+    </div>
+
+    <!-- Grid Features -->
+    <div style="text-align: center; color: white; margin-top: 150px;">
+        <h2 style="font-size: 36px; margin-bottom: 20px;">Почему нам доверяют?</h2>
+        <p style="color: #888;">Четыре столпа качества Saycom Company.</p>
+    </div>
+    <div class="features-grid">
+        <div class="feature-card">
+            <i class='bx bx-shield-quarter'></i>
+            <h3>Безупречная Защита</h3>
+            <p>Мы используем только передовые бренды камер и датчиков, гарантирующие стабильную работу вашим системам безопасности долгие годы.</p>
+        </div>
+        <div class="feature-card">
+            <i class='bx bx-trophy'></i>
+            <h3>Огромный Опыт</h3>
+            <p>Свыше 23 лет на рынке и команда сертифицированных специалистов высшей категории позволяют нам браться за самые сложные проекты.</p>
+        </div>
+        <div class="feature-card">
+            <i class='bx bx-support'></i>
+            <h3>Поддержка Клиентов</h3>
+            <p>Мы не бросаем вас после установки. Полный цикл гарантийного и пост-гарантийного обслуживания всей аппаратуры.</p>
+        </div>
+        <div class="feature-card">
+            <i class='bx bx-rocket'></i>
+            <h3>Инновации</h3>
+            <p>Мы первыми внедряем технологии «Умного дома», IP-домофонии и интеллектуальных сплит-систем на объектах.</p>
+        </div>
+    </div>
+
+    <!-- Stats Banner -->
+    <div class="stats-banner">
+        <div class="stat-circle">
+            <h2>23+</h2>
+            <p>Лет опыта</p>
+        </div>
+        <div class="stat-circle">
+            <h2>5000+</h2>
+            <p>Сданных Объектов</p>
+        </div>
+        <div class="stat-circle">
+            <h2>15+</h2>
+            <p>Экспертов</p>
+        </div>
+        <div class="stat-circle">
+            <h2>100%</h2>
+            <p>Гарантия</p>
+        </div>
+    </div>
+
+    <!-- Timeline Section -->
+    <div class="timeline-section">
+        <h2>История Развития</h2>
+        <div class="timeline">
+            <div class="timeline-item left">
+                <div class="timeline-content">
+                    <h3>2001</h3>
+                    <h4>Основание компании</h4>
+                    <p>Открытие первого небольшого офиса. Мы начинали с монтажа простых систем аналогового видеонаблюдения для частных домов и квартир.</p>
+                </div>
+            </div>
+            <div class="timeline-item right">
+                <div class="timeline-content">
+                    <h3>2010</h3>
+                    <h4>Выход на рынок B2B</h4>
+                    <p>Начало работы с крупными предприятиями. Расширение спектра услуг: добавлена установка промышленных ворот, шлагбаумов и домофонов.</p>
+                </div>
+            </div>
+            <div class="timeline-item left">
+                <div class="timeline-content">
+                    <h3>2018</h3>
+                    <h4>Технологический Скачок</h4>
+                    <p>Переход на цифровые IP-камеры высокого разрешения и внедрение систем «Умный дом». Штат высококвалифицированных сотрудников вырос втрое.</p>
+                </div>
+            </div>
+            <div class="timeline-item right">
+                <div class="timeline-content">
+                    <h3>2024</h3>
+                    <h4>Лидеры Отрасли</h4>
+                    <p>Преодолен рубеж в 5000+ объектов. На сегодняшний день бренд Saycom Company ассоциируется с безупречным качеством и долгосрочной надежностью.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="faq-section">
+        <h2>Часто задаваемые вопросы</h2>
+        <details class="faq-item">
+            <summary>Вы даете гарантию на оборудование?</summary>
+            <div class="faq-answer">Да, мы предоставляем официальную гарантию от производителя (от 1 до 3 лет) на все установленные камеры, домофоны, кондиционеры и автоматические ворота. Кроме того, мы даём 1 год технической гарантии на все наши монтажные работы.</div>
+        </details>
+        <details class="faq-item">
+            <summary>Как быстро происходит процесс установки?</summary>
+            <div class="faq-answer">Время монтажа зависит от масштаба объекта. Стандартная установка домашнего видеонаблюдения (до 4 камер) или одной сплит-системы кондиционирования занимает один рабочий день. Большие проекты рассчитываются индивидуально инженером.</div>
+        </details>
+        <details class="faq-item">
+            <summary>Работаете ли вы с юр. лицами и предприятиями?</summary>
+            <div class="faq-answer">Обязательно. Мы заключаем официальные договора с компаниями, безналичный расчет, обеспечиваем установку, запуск и дальнейшую техническую поддержку корпоративных систем безопасности и климата.</div>
+        </details>
+        <details class="faq-item">
+            <summary>Смогу ли я просматривать камеры со смартфона?</summary>
+            <div class="faq-answer">Да, наши инженеры абсолютно бесплатно настраивают приложение на вашем смартфоне (iOS/Android) после установки камер, чтобы вы могли следить за объектом из любой точки мира в реальном времени.</div>
+        </details>
+    </div>
+
+    <!-- Call to Action -->
+    <div class="cta-section">
+        <h2>Воплотим ваш проект в жизнь?</h2>
+        <a href="https://wa.me/77752816666" target="_blank" class="cta-btn">Связаться с нами <i class='bx bxl-whatsapp' style="margin-left: 8px; vertical-align: middle;"></i></a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-menu">
+            <div class="main-footer">
+                <ul>
+                    <li onclick="window.location.href='index.html'">Главная</li>
+                    <li onclick="window.location.href='category.html'">Категория</li>
+                    <li onclick="window.location.href='all_product.html'">Товары</li>
+                    <li onclick="window.location.href='installers.html'">Установщики</li>
+                    <li style="color: #fd5658; border-bottom:.1px solid #fd5658;">О нас</li>
+                    <li onclick="window.location.href='contacts.html'">Контакты</li>
+                    <li onclick="window.location.href='hert.html'">Избранное <i class='bx bxs-heart'></i></li>
+                    <li onclick="window.location.href='cart.html'">Корзина <i class='bx bxs-cart'></i></li>
+                    <li onclick="window.location.href='orders.html'">Мои Заказы <i class='bx bx-package'></i></li>
+                </ul>
+                <div class="contacts">
+                    <i class='bx bxl-whatsapp' onclick="window.open('https://wa.me/77752816666')"></i>
+                    <i class='bx bxl-telegram'></i>
+                    <i class='bx bxl-instagram'></i>
+                    <i class='bx bxl-tiktok'></i>
+                </div>
+                <div class="adress">
+                    <p>Адрес: г. Шымкент (Работаем по всему РК)</p>
+                    <p>Email: saycommap@gmail.com</p>
+                    <p onclick="window.location.href='tel:+77752816666'">Phone: +7(775)-281-6666</p>
+                </div>
+            </div>
+        </div>
+        <p class="copyright">© 2024 Saycom Company. All rights reserved.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

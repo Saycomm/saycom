@@ -1,0 +1,365 @@
+[
+  {
+    "id": 5,
+    "category": "Шлагбауны",
+    "name": "Шлагбаум FAAC",
+    "desc": "Надежный шлагбаум для контроля доступа.",
+    "price": "349,000 ₸",
+    "img": "assets/img/shlakb.jpeg",
+    "gallery": [
+      "assets/img/shlakb.jpeg",
+      "assets/img/ai.png",
+      "assets/img/kamera.png"
+    ],
+    "video": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "specs": [
+      {
+        "key": "Разрешение",
+        "value": "1080p Full HD"
+      },
+      {
+        "key": "Угол обзора",
+        "value": "110 градусов"
+      },
+      {
+        "key": "Ночное видение",
+        "value": "До 30 метров"
+      },
+      {
+        "key": "Защита",
+        "value": "IP67 (Водонепроницаемый)"
+      }
+    ],
+    "full_desc": "Saycom Company tomonidan taklif etilayotgan ushbu mahsulot - eng so'nggi texnologiyalar asosida yaratilgan. Bu qurilma yuqori samaradorlik va uzoq muddatli xizmat ko'rsatishni kafolatlaydi. Saycom - sizning xavfsizligingiz va qulayligingiz uchun ishonchli hamkor."
+  },
+  {
+    "id": 7,
+    "category": "Видеонаблюдения",
+    "name": "Wi-Fi Роутер TP-Link Mesh",
+    "desc": "Покрытие всего дома стабильным интернетом.",
+    "price": "60,000 ₸",
+    "img": "assets/img/kamera.png",
+    "gallery": [
+      "assets/img/kamera.png",
+      "assets/img/ai.png",
+      "assets/img/kamera.png"
+    ],
+    "video": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "specs": [
+      {
+        "key": "Разрешение",
+        "value": "1080p Full HD"
+      },
+      {
+        "key": "Угол обзора",
+        "value": "110 градусов"
+      },
+      {
+        "key": "Ночное видение",
+        "value": "До 30 метров"
+      },
+      {
+        "key": "Защита",
+        "value": "IP67 (Водонепроницаемый)"
+      }
+    ],
+    "full_desc": "Saycom Company tomonidan taklif etilayotgan ushbu mahsulot - eng so'nggi texnologiyalar asosida yaratilgan. Bu qurilma yuqori samaradorlik va uzoq muddatli xizmat ko'rsatishni kafolatlaydi. Saycom - sizning xavfsizligingiz va qulayligingiz uchun ishonchli hamkor."
+  },
+  {
+    "id": 9,
+    "category": "Видеонаблюдения",
+    "name": "Кабель UTP Cat 5e (Бухта)",
+    "desc": "Кабель 305 метров для интернета и камер.",
+    "price": "35,000 ₸",
+    "img": "assets/img/blue-img.png",
+    "gallery": [
+      "assets/img/blue-img.png",
+      "assets/img/ai.png",
+      "assets/img/kamera.png"
+    ],
+    "video": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "specs": [
+      {
+        "key": "Разрешение",
+        "value": "1080p Full HD"
+      },
+      {
+        "key": "Угол обзора",
+        "value": "110 градусов"
+      },
+      {
+        "key": "Ночное видение",
+        "value": "До 30 метров"
+      },
+      {
+        "key": "Защита",
+        "value": "IP67 (Водонепроницаемый)"
+      }
+    ],
+    "full_desc": "Saycom Company tomonidan taklif etilayotgan ushbu mahsulot - eng so'nggi texnologiyalar asosida yaratilgan. Bu qurilma yuqori samaradorlik va uzoq muddatli xizmat ko'rsatishni kafolatlaydi. Saycom - sizning xavfsizligingiz va qulayligingiz uchun ishonchli hamkor."
+  },
+  {
+    "id": 11,
+    "category": "Видеонаблюдения",
+    "name": "Жесткий диск 4TB WD Purple",
+    "desc": "Надежный диск для круглосуточной записи видео.",
+    "price": "65,000 ₸",
+    "img": "assets/img/red-img.png",
+    "gallery": [
+      "assets/img/red-img.png",
+      "assets/img/ai.png",
+      "assets/img/kamera.png"
+    ],
+    "video": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "specs": [
+      {
+        "key": "Разрешение",
+        "value": "1080p Full HD"
+      },
+      {
+        "key": "Угол обзора",
+        "value": "110 градусов"
+      },
+      {
+        "key": "Ночное видение",
+        "value": "До 30 метров"
+      },
+      {
+        "key": "Защита",
+        "value": "IP67 (Водонепроницаемый)"
+      }
+    ],
+    "full_desc": "Saycom Company tomonidan taklif etilayotgan ushbu mahsulot - eng so'nggi texnologiyalar asosida yaratilgan. Bu qurilma yuqori samaradorlik va uzoq muddatli xizmat ko'rsatishni kafolatlaydi. Saycom - sizning xavfsizligingiz va qulayligingiz uchun ishonchli hamkor."
+  },
+  {
+    "id": 12,
+    "category": "Видеонаблюдения",
+    "name": "Блок питания 12V 10A",
+    "desc": "Усиленный импульсный блок питания.",
+    "price": "8,500 ₸",
+    "img": "assets/img/white-img.png",
+    "gallery": [
+      "assets/img/white-img.png",
+      "assets/img/ai.png",
+      "assets/img/kamera.png"
+    ],
+    "video": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "specs": [
+      {
+        "key": "Разрешение",
+        "value": "1080p Full HD"
+      },
+      {
+        "key": "Угол обзора",
+        "value": "110 градусов"
+      },
+      {
+        "key": "Ночное видение",
+        "value": "До 30 метров"
+      },
+      {
+        "key": "Защита",
+        "value": "IP67 (Водонепроницаемый)"
+      }
+    ],
+    "full_desc": "Saycom Company tomonidan taklif etilayotgan ushbu mahsulot - eng so'nggi texnologiyalar asosida yaratilgan. Bu qurilma yuqori samaradorlik va uzoq muddatli xizmat ko'rsatishni kafolatlaydi. Saycom - sizning xavfsizligingiz va qulayligingiz uchun ishonchli hamkor."
+  },
+  {
+    "id": 14,
+    "category": "Видеонаблюдения",
+    "name": "IP Видеорегистратор 8CH",
+    "desc": "Видеорегистратор на 8 IP-камер с поддержкой 4K.",
+    "price": "55,000 ₸",
+    "img": "assets/img/ai.png",
+    "gallery": [
+      "assets/img/ai.png",
+      "assets/img/ai.png",
+      "assets/img/kamera.png"
+    ],
+    "video": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "specs": [
+      {
+        "key": "Разрешение",
+        "value": "1080p Full HD"
+      },
+      {
+        "key": "Угол обзора",
+        "value": "110 градусов"
+      },
+      {
+        "key": "Ночное видение",
+        "value": "До 30 метров"
+      },
+      {
+        "key": "Защита",
+        "value": "IP67 (Водонепроницаемый)"
+      }
+    ],
+    "full_desc": "Saycom Company tomonidan taklif etilayotgan ushbu mahsulot - eng so'nggi texnologiyalar asosida yaratilgan. Bu qurilma yuqori samaradorlik va uzoq muddatli xizmat ko'rsatishni kafolatlaydi. Saycom - sizning xavfsizligingiz va qulayligingiz uchun ishonchli hamkor."
+  },
+  {
+    "id": 15,
+    "category": "Авто-Вароты",
+    "name": "Турникет трипод",
+    "desc": "Элегантный турникет для офисов.",
+    "price": "220,000 ₸",
+    "img": "assets/img/shlakb.jpeg",
+    "gallery": [
+      "assets/img/shlakb.jpeg",
+      "assets/img/ai.png",
+      "assets/img/kamera.png"
+    ],
+    "video": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "specs": [
+      {
+        "key": "Разрешение",
+        "value": "1080p Full HD"
+      },
+      {
+        "key": "Угол обзора",
+        "value": "110 градусов"
+      },
+      {
+        "key": "Ночное видение",
+        "value": "До 30 метров"
+      },
+      {
+        "key": "Защита",
+        "value": "IP67 (Водонепроницаемый)"
+      }
+    ],
+    "full_desc": "Saycom Company tomonidan taklif etilayotgan ushbu mahsulot - eng so'nggi texnologiyalar asosida yaratilgan. Bu qurilma yuqori samaradorlik va uzoq muddatli xizmat ko'rsatishni kafolatlaydi. Saycom - sizning xavfsizligingiz va qulayligingiz uchun ishonchli hamkor."
+  },
+  {
+    "id": 17,
+    "category": "Видеонаблюдения",
+    "name": "Монтажный шкаф 9U",
+    "desc": "Настенный шкаф для серверного и сетевого оборудования.",
+    "price": "40,000 ₸",
+    "img": "assets/img/white-img.png",
+    "gallery": [
+      "assets/img/white-img.png",
+      "assets/img/ai.png",
+      "assets/img/kamera.png"
+    ],
+    "video": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "specs": [
+      {
+        "key": "Разрешение",
+        "value": "1080p Full HD"
+      },
+      {
+        "key": "Угол обзора",
+        "value": "110 градусов"
+      },
+      {
+        "key": "Ночное видение",
+        "value": "До 30 метров"
+      },
+      {
+        "key": "Защита",
+        "value": "IP67 (Водонепроницаемый)"
+      }
+    ],
+    "full_desc": "Saycom Company tomonidan taklif etilayotgan ushbu mahsulot - eng so'nggi texnologiyalar asosida yaratilgan. Bu qurilma yuqori samaradorlik va uzoq muddatli xizmat ko'rsatishni kafolatlaydi. Saycom - sizning xavfsizligingiz va qulayligingiz uchun ishonchli hamkor."
+  },
+  {
+    "id": 19,
+    "category": "Кондицеонеры",
+    "name": "Кондиционер Midea",
+    "desc": "Надежная и тихая сплит-система для дома.",
+    "price": "180,000 ₸",
+    "img": "assets/img/aer-con.png",
+    "gallery": [
+      "assets/img/aer-con.png",
+      "assets/img/ai.png",
+      "assets/img/kamera.png"
+    ],
+    "video": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "specs": [
+      {
+        "key": "Разрешение",
+        "value": "1080p Full HD"
+      },
+      {
+        "key": "Угол обзора",
+        "value": "110 градусов"
+      },
+      {
+        "key": "Ночное видение",
+        "value": "До 30 метров"
+      },
+      {
+        "key": "Защита",
+        "value": "IP67 (Водонепроницаемый)"
+      }
+    ],
+    "full_desc": "Saycom Company tomonidan taklif etilayotgan ushbu mahsulot - eng so'nggi texnologiyalar asosida yaratilgan. Bu qurilma yuqori samaradorlik va uzoq muddatli xizmat ko'rsatishni kafolatlaydi. Saycom - sizning xavfsizligingiz va qulayligingiz uchun ishonchli hamkor."
+  },
+  {
+    "id": 20,
+    "category": "Видеонаблюдения",
+    "name": "Гофра кабель канал",
+    "desc": "Износостойкая гофра 50 метров.",
+    "price": "12,000 ₸",
+    "img": "assets/img/blue-img.png",
+    "gallery": [
+      "assets/img/blue-img.png",
+      "assets/img/ai.png",
+      "assets/img/kamera.png"
+    ],
+    "video": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "specs": [
+      {
+        "key": "Разрешение",
+        "value": "1080p Full HD"
+      },
+      {
+        "key": "Угол обзора",
+        "value": "110 градусов"
+      },
+      {
+        "key": "Ночное видение",
+        "value": "До 30 метров"
+      },
+      {
+        "key": "Защита",
+        "value": "IP67 (Водонепроницаемый)"
+      }
+    ],
+    "full_desc": "Saycom Company tomonidan taklif etilayotgan ushbu mahsulot - eng so'nggi texnologiyalar asosida yaratilgan. Bu qurilma yuqori samaradorlik va uzoq muddatli xizmat ko'rsatishni kafolatlaydi. Saycom - sizning xavfsizligingiz va qulayligingiz uchun ishonchli hamkor."
+  },
+  {
+    "id": 21,
+    "category": "Видеонаблюдения",
+    "name": "Скрытая Wi-Fi камера",
+    "desc": "Мини-камера с подключением к смартфону.",
+    "price": "22,000 ₸",
+    "img": "assets/img/kamera.png",
+    "gallery": [
+      "assets/img/kamera.png",
+      "assets/img/ai.png",
+      "assets/img/kamera.png"
+    ],
+    "video": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "specs": [
+      {
+        "key": "Разрешение",
+        "value": "1080p Full HD"
+      },
+      {
+        "key": "Угол обзора",
+        "value": "110 градусов"
+      },
+      {
+        "key": "Ночное видение",
+        "value": "До 30 метров"
+      },
+      {
+        "key": "Защита",
+        "value": "IP67 (Водонепроницаемый)"
+      }
+    ],
+    "full_desc": "Saycom Company tomonidan taklif etilayotgan ushbu mahsulot - eng so'nggi texnologiyalar asosida yaratilgan. Bu qurilma yuqori samaradorlik va uzoq muddatli xizmat ko'rsatishni kafolatlaydi. Saycom - sizning xavfsizligingiz va qulayligingiz uchun ishonchli hamkor."
+  }
+]

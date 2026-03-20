@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оформление заказа</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .checkout-wrapper {
+            max-width: 500px;
+            margin: 50px auto;
+            background: #1a1a1a;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid #333;
+            color: white;
+            box-sizing: border-box;
+            width: 90%;
+        }
+
+        .checkout-wrapper h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #fc5558;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #bbb;
+        }
+
+        .input-group input[type="text"] {
+            width: 100%;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #333;
+            background: #0a0a0a;
+            color: white;
+            font-size: 16px;
+            box-sizing: border-box;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .input-group input[type="text"]:focus {
+            border-color: #fc5558;
+            box-shadow: 0 0 10px rgba(252, 85, 88, 0.2);
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            gap: 10px;
+        }
+
+        .checkbox-group input {
+            width: 20px;
+            height: 20px;
+            accent-color: #fc5558;
+            cursor: pointer;
+        }
+
+        .checkbox-group label {
+            font-size: 14px;
+            color: #ddd;
+            cursor: pointer;
+        }
+
+        .checkbox-group a {
+            color: #fc5558;
+            text-decoration: underline;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(90deg, #fc5558, #ff7e5f);
+            color: white;
+            border: none;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(252, 85, 88, 0.4);
+            transition: 0.3s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 25px rgba(252, 85, 88, 0.6);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="main-container">
+        <img src="assets/img/main-logo.png" class="main-logo" alt="Saycom Logo" onclick="window.location.href='index.html'" style="cursor: pointer;">
+        <div class="search-container">
+            <i class='bx bx-search'></i>
+            <input type="text" id="main-search-input" placeholder="Поиск товаров (например: камеры, кондиционеры)...">
+        </div>
+        <ul class="header-actions">
+            <li onclick="window.location.href='hert.html'">Избранное <i class='bx bxs-heart' style="color:#fc5558;"></i></li>
+            <li onclick="window.location.href='cart.html'">Корзина <i class='bx bxs-cart' style="color:#fc5558;"></i></li>
+            <li onclick="window.location.href='orders.html'">Мои Заказы <i class='bx bx-package' style="color:#fc5558;"></i></li>
+    </ul>
+    </div>
+
+    <div class="nav-container">
+        <ul class="main-menus">
+            <li onclick="window.location.href='index.html'">Главная</li>
+            <li onclick="window.location.href='category.html'">Категория</li>
+            <li onclick="window.location.href='all_product.html'">Товары</li>
+            <li onclick="window.location.href='installers.html'">Установщики</li>
+            <li onclick="window.location.href='about.html'">О нас</li>
+            <li onclick="window.location.href='contacts.html'">Контакты</li>
+        </ul>
+    </div>
+
+    <div class="checkout-wrapper">
+        <h2>Оформление заказа</h2>
+        <div class="input-group">
+            <label>ИмяФамилия</label>
+            <input type="text" id="c_name" placeholder="Введите ваше имя">
+        </div>
+        <div class="input-group">
+            <label>Телефонный номер</label>
+            <input type="text" id="c_phone" placeholder="+7 (___) ___-____">
+        </div>
+        <div class="checkbox-group">
+            <input type="checkbox" id="c_terms">
+            <label for="c_terms">Я согласен с <a href="terms.html" target="_blank">условиями использования</a></label>
+        </div>
+        <button class="submit-btn" onclick="sendWhatsapp()">Отправить в WhatsApp <i class='bx bxl-whatsapp'
+                style="font-size:20px; vertical-align: middle;"></i></button>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-menu">
+            <div class="main-footer">
+                <div class="contacts">
+                    <i class='bx bxl-whatsapp'></i>
+                    <i class='bx bxl-telegram'></i>
+                    <i class='bx bxl-instagram'></i>
+                    <i class='bx bxl-tiktok'></i>
+                </div>
+                <div class="adress">
+                    <p>Адрес: г. Шымкент (Работаем по всему РК)</p>
+                    <p>Email:saycommap@gmail.com</p>
+                    <p onclick="window.location.href='tel:+77752816666'">Phone:+7(775)-281-6666</p>
+                </div>
+        
+    </div>
+        </div>
+        <p class="copyright">© 2024 Saycom Company. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function sendWhatsapp() {
+            let name = document.getElementById('c_name').value.trim();
+            let phone = document.getElementById('c_phone').value.trim();
+            let checked = document.getElementById('c_terms').checked;
+
+            if (!name || !phone) {
+                alert("Пожалуйста, заполните Имя и Телефон.");
+                return;
+            }
+            if (!checked) {
+                alert("Вам необходимо согласиться с Условиями использования.");
+                return;
+            }
+
+            let cartItems = JSON.parse(localStorage.getItem('cart_products') || '[]');
+            if (cartItems.length === 0) {
+                alert("Ваша корзина пуста!");
+                window.location.href = 'cart.html';
+                return;
+            }
+
+            fetch('/api/products')
+                .then(r => r.json())
+                .then(products => {
+                    let msg = "Здравствуйте! Хочу оформить заказ:\n\n";
+                    let myOrders = JSON.parse(localStorage.getItem('my_orders') || '[]');
+
+                    cartItems.forEach((c, idx) => {
+                        let p = products.find(prod => String(prod.id) === String(c.id));
+                        if (p) msg += `${idx + 1}. ${p.name} - ${c.qt} шт\n`;
+
+                        let existing = myOrders.find(o => String(o.id) === String(c.id));
+                        if (existing) existing.qt += c.qt;
+                        else myOrders.push({ id: c.id, qt: c.qt });
+                    });
+
+                    // Clear cart and save order
+                    localStorage.setItem('my_orders', JSON.stringify(myOrders));
+                    localStorage.setItem('cart_products', '[]');
+
+                    msg += `\n👤 Имя: ${name}\n📞 Телефон: ${phone}\n\nЖду подтверждения!`;
+
+                    let encodedMsg = encodeURIComponent(msg);
+                    let checkPlatform = navigator.userAgent;
+                    let url;
+                    // Try to use wa.me which dynamically redirects effectively on both Desktop/Mobile
+                    url = `https://wa.me/77752826666?text=${encodedMsg}`;
+                    window.location.href = url;
+                })
+                .catch(err => {
+                    alert("Ошибка соединения. Попробуйте обновить страницу.");
+                    console.error(err);
+                });
+        }
+    </script>
+</body>
+
+</html>

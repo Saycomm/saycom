@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты - Saycom Company</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .contacts-hero {
+            text-align: center;
+            padding: 100px 20px 40px;
+            color: white;
+        }
+        .contacts-hero h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+            color: #fff;
+            text-shadow: 0 0 20px rgba(252, 85, 88, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .contacts-hero p {
+            color: #aaa;
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .contacts-container {
+            max-width: 1300px;
+            margin: 60px auto 100px;
+            padding: 0 20px;
+            display: flex;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .contacts-info {
+            flex: 1;
+            min-width: 320px;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+        .info-card {
+            background: rgba(17, 17, 17, 0.8);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 30px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            transition: 0.3s;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .info-card:hover {
+            transform: translateX(10px);
+            border-color: #fc5558;
+            box-shadow: 0 10px 30px rgba(252, 85, 88, 0.15);
+            background: rgba(25, 25, 25, 0.9);
+        }
+        .info-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #222, #111);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 35px;
+            color: #fc5558;
+            border: 2px solid #333;
+            transition: 0.3s;
+        }
+        .info-card:hover .info-icon {
+            background: #fc5558;
+            color: white;
+            border-color: #fc5558;
+            box-shadow: 0 0 20px rgba(252, 85, 88, 0.6);
+        }
+        .info-text h3 {
+            color: white;
+            font-size: 20px;
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+        .info-text p {
+            color: #aaa;
+            font-size: 15px;
+        }
+
+        .contact-form-wrapper {
+            flex: 1.2;
+            min-width: 350px;
+            background: linear-gradient(145deg, rgba(20,20,20,0.9), rgba(10,10,10,0.9));
+            border: 1px solid rgba(252, 85, 88, 0.2);
+            border-radius: 30px;
+            padding: 50px 40px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            position: relative;
+            overflow: hidden;
+        }
+        .contact-form-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 5px;
+            background: linear-gradient(90deg, #fc5558, #ff7e5f);
+        }
+        .contact-form-wrapper h2 {
+            color: white;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        .contact-form-wrapper p {
+            color: #888;
+            margin-bottom: 30px;
+            font-size: 15px;
+        }
+        
+        .form-group {
+            position: relative;
+            margin-bottom: 25px;
+        }
+        .form-group i {
+            position: absolute;
+            left: 20px;
+            top: 18px;
+            color: #777;
+            font-size: 22px;
+        }
+        .form-input {
+            width: 100%;
+            background: rgba(0,0,0,0.5);
+            border: 1px solid #333;
+            border-radius: 15px;
+            padding: 18px 20px 18px 55px;
+            color: white;
+            font-size: 16px;
+            outline: none;
+            transition: 0.3s;
+            box-sizing: border-box;
+            font-family: inherit;
+        }
+        .form-input:focus {
+            border-color: #fc5558;
+            background: rgba(252, 85, 88, 0.05);
+            box-shadow: 0 0 15px rgba(252, 85, 88, 0.1);
+        }
+        textarea.form-input {
+            min-height: 150px;
+            resize: vertical;
+        }
+        .submit-btn {
+            background: linear-gradient(90deg, #fc5558, #ff7e5f);
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 18px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 10px 20px rgba(252, 85, 88, 0.3);
+        }
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(252, 85, 88, 0.5);
+        }
+
+        /* Map Section */
+        .map-section {
+            width: 100%;
+            max-width: 1300px;
+            margin: 0 auto 100px;
+            padding: 0 20px;
+            box-sizing: border-box;
+            display: block;
+        }
+        .map-container {
+            width: 100%;
+            height: 450px;
+            border-radius: 30px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.05);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+            background: #111;
+            position: relative;
+            display: block;
+        }
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            filter: invert(90%) hue-rotate(180deg) contrast(100%); /* Cool Dark Mode effect for Maps */
+        }
+        /* Mobile Friendly Adjustments */
+        @media screen and (max-width: 768px) {
+            .contacts-hero { padding: 80px 20px 40px; }
+            .contacts-hero h1 { font-size: 32px; }
+            .contacts-hero p { font-size: 16px; padding: 0 10px; }
+            
+            .contacts-container { padding: 0 20px; gap: 30px; }
+            .contacts-info { padding-right: 0; min-width: 100%; }
+            .info-card { padding: 25px; min-width: 100%; box-sizing: border-box; }
+            
+            .contact-form-wrapper { min-width: 100%; padding: 40px 25px; box-sizing: border-box; }
+            .contact-form-wrapper h2 { font-size: 26px; }
+            
+            .map-section { padding: 0 10px; margin-bottom: 50px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-container">
+        <img src="assets/img/main-logo.png" class="main-logo" alt="Saycom Logo" onclick="window.location.href='index.html'" style="cursor: pointer;">
+        <div class="search-container">
+            <i class='bx bx-search'></i>
+            <input type="text" id="main-search-input" placeholder="Поиск товаров (например: камеры, кондиционеры)...">
+        </div>
+        <ul class="header-actions">
+            <li onclick="window.location.href='hert.html'">Избранное <i class='bx bxs-heart' style="color:#fc5558;"></i></li>
+            <li onclick="window.location.href='cart.html'">Корзина <i class='bx bxs-cart' style="color:#fc5558;"></i></li>
+            <li onclick="window.location.href='orders.html'">Мои Заказы <i class='bx bx-package' style="color:#fc5558;"></i></li>
+    </ul>
+    </div>
+
+    <div class="nav-container">
+        <ul class="main-menus">
+            <li onclick="window.location.href='index.html'">Главная</li>
+            <li onclick="window.location.href='category.html'">Категория</li>
+            <li onclick="window.location.href='all_product.html'">Товары</li>
+            <li onclick="window.location.href='installers.html'">Установщики</li>
+            <li onclick="window.location.href='about.html'">О нас</li>
+            <li style="color: #fd5658; border-bottom:.1px solid #fd5658;">Контакты</li>
+        </ul>
+    </div>
+
+    <div class="contacts-hero">
+        <h1>Свяжитесь с нами</h1>
+        <p>Круглосуточная поддержка, выезд мастеров и профессиональные консультации. Задайте любой вопрос или закажите оборудование прямо сейчас!</p>
+    </div>
+
+    <div class="contacts-container">
+        <!-- Contact Information Cards -->
+        <div class="contacts-info">
+            <a href="tel:+77752816666" class="info-card">
+                <div class="info-icon"><i class='bx bx-phone-call'></i></div>
+                <div class="info-text">
+                    <h3>Телефон</h3>
+                    <p>+7 (775) 281-6666</p>
+                </div>
+            </a>
+            
+            <a href="https://wa.me/77752816666" target="_blank" class="info-card">
+                <div class="info-icon"><i class='bx bxl-whatsapp'></i></div>
+                <div class="info-text">
+                    <h3>WhatsApp</h3>
+                    <p>Менеджер онлайн</p>
+                </div>
+            </a>
+
+            <a href="mailto:saycommap@gmail.com" class="info-card">
+                <div class="info-icon"><i class='bx bx-envelope'></i></div>
+                <div class="info-text">
+                    <h3>Email</h3>
+                    <p>saycommap@gmail.com</p>
+                </div>
+            </a>
+
+            <div class="info-card">
+                <div class="info-icon"><i class='bx bx-map'></i></div>
+                <div class="info-text">
+                    <h3>Наш Офис</h3>
+                    <p>г. Шымкент, работаем по всему Казахстану. С 9:00 до 18:00</p>
+                </div>
+        
+    </div>
+        </div>
+
+        <!-- HTML Form sending directly via WhatsApp WA.ME -->
+        <div class="contact-form-wrapper">
+            <h2>Оставьте заявку</h2>
+            <p>Заполните форму, и наш менеджер перезвонит вам или ответит в WhatsApp в течение 10 минут.</p>
+            <form id="contactForm" onsubmit="event.preventDefault(); sendWhatsappMessage();">
+                <div class="form-group">
+                    <i class='bx bx-user'></i>
+                    <input type="text" id="contactName" class="form-input" placeholder="Ваше Имя" required>
+                </div>
+                <div class="form-group">
+                    <i class='bx bx-mobile-alt'></i>
+                    <input type="tel" id="contactPhone" class="form-input" placeholder="Ваш Телефон (+7 ...)" required>
+                </div>
+                <div class="form-group">
+                    <i class='bx bx-message-square-detail'></i>
+                    <textarea id="contactMessage" class="form-input" placeholder="Опишите вашу задачу (например, хочу установить 4 камеры и домофон)" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">
+                    Отправить Заявку <i class='bx bx-send'></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Map Section -->
+    <div class="map-section">
+        <h2 style="color: white; margin-bottom: 25px; text-transform: uppercase; font-size: 26px;">Мы на карте</h2>
+        <div class="map-container">
+            <!-- Universal map since 'World' was the address -->
+            <iframe style="width: 100%; height: 600px; border: 0; display: block;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d187763.565345672!2d69.45325792015053!3d42.34091157581177!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38a91a92ce17ba9b%3A0xe53bc9d3de26ecf0!2z0KjRi9C80LrQtdC90YIgMTYwMDAw!5e0!3m2!1sru!2skz!4v1711200000000!5m2!1sru!2skz" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-menu">
+            <div class="main-footer">
+                <ul>
+                    <li onclick="window.location.href='index.html'">Главная</li>
+                    <li onclick="window.location.href='category.html'">Категория</li>
+                    <li onclick="window.location.href='all_product.html'">Товары</li>
+                    <li onclick="window.location.href='installers.html'">Установщики</li>
+                    <li onclick="window.location.href='about.html'">О нас</li>
+                    <li style="color: #fd5658; border-bottom:.1px solid #fd5658;">Контакты</li>
+                    <li onclick="window.location.href='hert.html'">Избранное <i class='bx bxs-heart'></i></li>
+                    <li onclick="window.location.href='cart.html'">Корзина <i class='bx bxs-cart'></i></li>
+                    <li onclick="window.location.href='orders.html'">Мои Заказы <i class='bx bx-package'></i></li>
+                </ul>
+                <div class="contacts">
+                    <i class='bx bxl-whatsapp' onclick="window.open('https://wa.me/77752816666')"></i>
+                    <i class='bx bxl-telegram'></i>
+                    <i class='bx bxl-instagram'></i>
+                    <i class='bx bxl-tiktok'></i>
+                </div>
+                <div class="adress">
+                    <p>Адрес: г. Шымкент (Работаем по всему РК)</p>
+                    <p>Email: saycommap@gmail.com</p>
+                    <p onclick="window.location.href='tel:+77752816666'">Phone: +7(775)-281-6666</p>
+                </div>
+            </div>
+        </div>
+        <p class="copyright">© 2024 Saycom Company. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function sendWhatsappMessage() {
+            const name = document.getElementById('contactName').value;
+            const phone = document.getElementById('contactPhone').value;
+            const message = document.getElementById('contactMessage').value;
+
+            // Generate WhatsApp link dynamically
+            const phoneNum = "77752816666";
+            const whatsAppText = `Здравствуйте, это автоматическая заявка с сайта SAYCOM:%0A%0A*Имя:* ${encodeURIComponent(name)}%0A*Контактный телефон:* ${encodeURIComponent(phone)}%0A%0A*Сообщение/Задача:*%0A${encodeURIComponent(message)}`;
+            
+            window.open(`https://wa.me/${phoneNum}?text=${whatsAppText}`, '_blank');
+        }
+    </script>
+    <script src="js/script.js"></script>
+</body>
+</html>

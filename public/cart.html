@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Saycom Company — Все товары. Кондиционеры, камеры, автоворота, домофоны, шлагбаумы." />
+    <title>Все Товары</title>
+    <meta name="keywords"
+        content="кондиционеры, камеры, видеонаблюдение, автоворота, домофон, шлагбаум, монтаж, сервис, Saycom" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .header-container {
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            position: relative;
+            margin-top: 70px;
+        }
+
+        .header-container h1 {
+            font-size: 34px !important;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="main-container">
+        <img src="assets/img/main-logo.png" class="main-logo" alt="Saycom Logo" onclick="window.location.href='index.html'" style="cursor: pointer;">
+        <div class="search-container">
+            <i class='bx bx-search'></i>
+            <input type="text" id="main-search-input" placeholder="Поиск товаров (например: камеры, кондиционеры)...">
+        </div>
+        <ul class="header-actions">
+            <li onclick="window.location.href='hert.html'">Избранное <i class='bx bxs-heart' style="color:#fc5558;"></i></li>
+            <li style="color: #fd5658; border-bottom:.1px solid #fd5658;">Корзина <i class='bx bxs-cart' style="color:#fc5558;"></i></li>
+            <li onclick="window.location.href='orders.html'">Мои Заказы <i class='bx bx-package' style="color:#fc5558;"></i></li>
+    </ul>
+    </div>
+
+    <div class="nav-container">
+        <ul class="main-menus">
+            <li onclick="window.location.href='index.html'">Главная</li>
+            <li onclick="window.location.href='category.html'">Категория</li>
+            <li onclick="window.location.href='all_product.html'">Товары</li>
+            <li onclick="window.location.href='installers.html'">Установщики</li>
+            <li onclick="window.location.href='about.html'">О нас</li>
+            <li onclick="window.location.href='contacts.html'">Контакты</li>
+        </ul>
+    </div>
+
+    <div class="header-container ">
+        <h1>Корзина</h1>
+    </div>
+
+    <div class="papuler-product-container animation-item" style="margin-top: 20px; padding-bottom: 60px;">
+        <div class="papuler-products" id="all-dynamic-products-container">
+            <!-- Dynamic products from localStorage will be loaded here via script.js -->
+        </div>
+        <div id="checkout-block" style="display: none; text-align: center; margin-top: 40px;">
+            <button onclick="window.location.href='checkout.html'" style="padding: 16px 40px; background: linear-gradient(90deg, #fc5558, #ff7e5f); color: white; border: none; font-size: 18px; font-weight: bold; border-radius: 30px; cursor: pointer; box-shadow: 0 10px 20px rgba(252, 85, 88, 0.4); width: 100%; max-width: 320px; transition: 0.3s;">Оформить заказ</button>
+        </div>
+        
+    </div>
+
+    <footer class="footer">
+        <div class="footer-menu">
+            <div class="main-footer">
+                <ul>
+                    <li onclick="window.location.href='index.html'">Главная</li>
+                    <li onclick="window.location.href='category.html'">Категория</li>
+                    <li onclick="window.location.href='all_product.html'">Товары</li>
+                    <li onclick="window.location.href='installers.html'">Установщики</li>
+                    <li onclick="window.location.href='about.html'">О нас</li>
+                    <li onclick="window.location.href='contacts.html'">Контакты</li>
+                    <li onclick="window.location.href='hert.html'">Избранное <i class='bx bxs-heart'></i></li>
+                    <li style="color: #fd5658; border-bottom:.1px solid #fd5658;">Корзина <i class='bx bxs-cart'></i></li>
+                    <li onclick="window.location.href='orders.html'">Мои Заказы <i class='bx bx-package'></i></li>
+                </ul>
+                <div class="contacts">
+                    <i class='bx bxl-whatsapp'></i>
+                    <i class='bx bxl-telegram'></i>
+                    <i class='bx bxl-instagram'></i>
+                    <i class='bx bxl-tiktok'></i>
+                </div>
+                <div class="adress">
+                    <p>Адрес: г. Шымкент (Работаем по всему РК)</p>
+                    <p>Email:saycommap@gmail.com</p>
+                    <p onclick="window.location.href='tel:+77752816666'">Phone:+7(775)-281-6666</p>
+                </div>
+            </div>
+        </div>
+        <p class="copyright">© 2024 Saycom Company. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const items = document.querySelectorAll('.animation-item');
+        const items2 = document.querySelectorAll('.animation-item-2');
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                    observer.unobserve(entry.target);
+                }
+            });
+        });
+
+        items.forEach(item => observer.observe(item));
+        if (items2.length > 0) items2.forEach(item => observer.observe(item));
+    </script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

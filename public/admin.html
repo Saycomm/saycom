@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saycom Admin Panel</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            display: flex;
+            min-height: 100vh;
+        }
+        #login-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+        }
+        .login-box {
+            background: #1a1a1a;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(252, 85, 88, 0.2);
+            border: 1px solid rgba(252, 85, 88, 0.3);
+            width: 300px;
+        }
+        .login-box h2 {
+            margin-top: 0;
+            color: #fc5558;
+        }
+        .login-box input {
+            width: 100%;
+            padding: 12px;
+            margin: 15px 0;
+            border-radius: 10px;
+            border: 1px solid #333;
+            background: #0a0a0a;
+            color: white;
+            box-sizing: border-box;
+            outline: none;
+        }
+        .login-box button {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(90deg, #fc5558, #ff7e5f);
+            border: none;
+            color: white;
+            font-weight: bold;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .sidebar {
+            width: 250px;
+            background: #111;
+            padding: 30px 20px;
+            border-right: 1px solid #333;
+        }
+        .sidebar h2 {
+            color: #fc5558;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .sidebar-menu {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar-menu li {
+            padding: 15px;
+            margin-bottom: 10px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .sidebar-menu li:hover, .sidebar-menu li.active {
+            background: #fc5558;
+            color: white;
+        }
+        .main-content {
+            flex: 1;
+            padding: 40px;
+            overflow-y: auto;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 20px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+        .btn-add {
+            background: linear-gradient(90deg, #fc5558, #ff7e5f);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .table-container {
+            background: #111;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+        th, td {
+            padding: 15px;
+            border-bottom: 1px solid #222;
+        }
+        th {
+            color: #888;
+            font-weight: 600;
+        }
+        td img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+        .actions button {
+            background: #333;
+            border: none;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 5px;
+            transition: 0.3s;
+        }
+        .actions button.edit:hover { background: #4caf50; }
+        .actions button.delete:hover { background: #fc5555; }
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        .modal {
+            background: #1a1a1a;
+            padding: 30px;
+            border-radius: 15px;
+            width: 600px;
+            max-height: 90vh;
+            overflow-y: auto;
+            border: 1px solid #333;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .modal h2 { margin-top: 0; }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #aaa;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #333;
+            background: #111;
+            color: white;
+            box-sizing: border-box;
+            outline: none;
+        }
+        .modal-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .modal-actions button {
+            padding: 10px 20px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .btn-cancel { background: #333; color: white; }
+        .btn-save { background: #fc5558; color: white; }
+
+        @media screen and (max-width: 768px) {
+            body { flex-direction: column; }
+            .sidebar { width: 100%; box-sizing: border-box; border-right: none; border-bottom: 1px solid #333; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="login-overlay">
+        <div class="login-box">
+            <h2>Saycom Admin</h2>
+            <p>Паролни kriting</p>
+            <input type="password" id="admin-pass" placeholder="Парол (admin123)">
+            <button onclick="login()">Кириш</button>
+            <p id="login-error" style="color:red; display:none; margin-top:10px;">Notog'ri parol!</p>
+        </div>
+    </div>
+
+    <div class="sidebar">
+        <h2>SAYCOM Admin</h2>
+        <ul class="sidebar-menu">
+            <li class="active"><i class='bx bx-cube'></i> Товарлар</li>
+            <li onclick="window.location.href='index.html'"><i class='bx bx-home'></i> Saytga qaytish</li>
+            <li onclick="logout()"><i class='bx bx-log-out'></i> Chiqish</li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <div class="header">
+            <h1>Махсулотларни Boshqarish</h1>
+            <div style="display: flex; gap: 10px;">
+                <button id="btn-bulk-delete" class="btn-add" style="background: #fc5555; display: none;" onclick="deleteSelected()">
+                    <i class='bx bx-trash'></i> Tanlanganlarni o'chirish
+                </button>
+                <button class="btn-add" onclick="openModal()"><i class='bx bx-plus'></i> Товар qo'shish</button>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 40px;"><input type="checkbox" id="select-all" onclick="toggleSelectAll()"></th>
+                        <th>Rasm</th>
+                        <th>Nomi (Taovarni nomi)</th>
+                        <th>Opisaniya</th>
+                        <th>Narxi (Price)</th>
+                        <th>Amallar</th>
+                    </tr>
+                </thead>
+                <tbody id="product-list">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="product-modal">
+        <div class="modal">
+            <h2 id="modal-title">Товар qo'shish</h2>
+            <input type="hidden" id="product-id">
+            <div class="form-group">
+                <label>Nomi</label>
+                <input type="text" id="p-name" placeholder="Masalan: Камера видеонаблюдения">
+            </div>
+            <div class="form-group">
+                <label>Kichik opisaniy</label>
+                <textarea id="p-desc" rows="3" placeholder="Masalan: Высококачественная камера..."></textarea>
+            </div>
+            <div class="form-group">
+                <label>Narxi</label>
+                <input type="text" id="p-price" placeholder="Masalan: $49.99">
+            </div>
+            <div class="form-group">
+                <label>Kategoriya</label>
+                <select id="p-category" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #333; background: #111; color: white;">
+                    <option value="">Kategoriyani tanlang</option>
+                    <option value="Видеонаблюдения">Видеонаблюдения</option>
+                    <option value="Кондицеонеры">Кондицеонеры</option>
+                    <option value="Авто-Вароты">Авто-Вароты</option>
+                    <option value="Дамафоны">Дамафоны</option>
+                    <option value="Шлагбауны">Шлагбауны</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Rasm URL (Asosiy)</label>
+                <input type="text" id="p-img" placeholder="https://...">
+            </div>
+            <div class="form-group">
+                <label>Galereya (Vergul bilan ajratilgan rasm URLlari)</label>
+                <textarea id="p-gallery" rows="2" placeholder="url1, url2, url3..."></textarea>
+            </div>
+            <div class="form-group">
+                <label>To'liq tavsif (Full description)</label>
+                <textarea id="p-full-desc" rows="4" placeholder="Tovarning barcha afzalliklari..."></textarea>
+            </div>
+            <div class="form-group">
+                <label>Xarakteristikalar (Har bir qatorda 'Nomi: Qiymati' ko'rinishida)</label>
+                <textarea id="p-specs" rows="4" placeholder="Diagonal: 15.6&#10;Processer: Core i7..."></textarea>
+            </div>
+            <div class="form-group">
+                <label>Video link (YouTube Embed URL)</label>
+                <input type="text" id="p-video" placeholder="https://www.youtube.com/embed/...">
+            </div>
+            <div class="modal-actions">
+                <button class="btn-cancel" onclick="closeModal()">Bekor qilish</button>
+                <button class="btn-save" onclick="saveProduct()">Saqlash</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let products = [];
+
+        function loadProducts() {
+            fetch('/api/products')
+                .then(r => r.json())
+                .then(data => {
+                    products = data;
+                    if (sessionStorage.getItem('admin_logged_in') === 'true') {
+                        renderTable();
+                    }
+                })
+                .catch(err => {
+                    console.error("No backend running", err);
+                    alert("Backend server ishlamayapti! (Terminalda: node server.js qiling)");
+                });
+        }
+        loadProducts();
+
+        const loggedIn = sessionStorage.getItem('admin_logged_in');
+        if (loggedIn === 'true') {
+            document.getElementById('login-overlay').style.display = 'none';
+        }
+
+        function login() {
+            const pass = document.getElementById('admin-pass').value;
+            if (pass === 'admin123' || pass === 'saycom123') {
+                sessionStorage.setItem('admin_logged_in', 'true');
+                document.getElementById('login-overlay').style.display = 'none';
+                renderTable();
+            } else {
+                document.getElementById('login-error').style.display = 'block';
+            }
+        }
+
+        function logout() {
+            sessionStorage.removeItem('admin_logged_in');
+            window.location.reload();
+        }
+
+        function renderTable() {
+            const tbody = document.getElementById('product-list');
+            tbody.innerHTML = '';
+            products.forEach((p, index) => {
+                tbody.innerHTML += `
+                    <tr class="${p.selected ? 'selected-row' : ''}">
+                        <td><input type="checkbox" class="product-checkbox" data-index="${index}" ${p.selected ? 'checked' : ''} onchange="updateRowSelection(${index}, this)"></td>
+                        <td><img src="${p.img}" alt="img" onerror="this.src='https://via.placeholder.com/50'"></td>
+                        <td>${p.name}</td>
+                        <td>${(p.desc || '').substring(0,30)}...</td>
+                        <td>${p.price}</td>
+                        <td class="actions">
+                            <button class="edit" onclick="editProduct(${index})"><i class='bx bx-edit'></i></button>
+                            <button class="delete" onclick="deleteProduct(${index})"><i class='bx bx-trash'></i></button>
+                        </td>
+                    </tr>
+                `;
+            });
+        }
+
+        const modal = document.getElementById('product-modal');
+        function openModal() {
+            document.getElementById('modal-title').innerText = "Товар qo'shish";
+            document.getElementById('product-id').value = '';
+            document.getElementById('p-name').value = '';
+            document.getElementById('p-desc').value = '';
+            document.getElementById('p-price').value = '';
+            document.getElementById('p-category').value = '';
+            document.getElementById('p-img').value = '';
+            document.getElementById('p-gallery').value = '';
+            document.getElementById('p-full-desc').value = '';
+            document.getElementById('p-specs').value = '';
+            document.getElementById('p-video').value = '';
+            modal.style.display = 'flex';
+        }
+
+        function closeModal() {
+            modal.style.display = 'none';
+        }
+
+        function editProduct(index) {
+            const p = products[index];
+            document.getElementById('modal-title').innerText = "Товарni o'zgartirish";
+            document.getElementById('product-id').value = index;
+            document.getElementById('p-name').value = p.name || '';
+            document.getElementById('p-desc').value = p.desc || '';
+            document.getElementById('p-price').value = p.price || '';
+            document.getElementById('p-category').value = p.category || '';
+            document.getElementById('p-img').value = p.img || '';
+            document.getElementById('p-gallery').value = (p.gallery || []).join(', ');
+            document.getElementById('p-full-desc').value = p.full_desc || '';
+            document.getElementById('p-specs').value = (p.specs || []).map(s => `${s.key}: ${s.value}`).join('\n');
+            document.getElementById('p-video').value = p.video || '';
+            modal.style.display = 'flex';
+        }
+
+        function saveToServer() {
+            // Remove 'selected' property before saving to server
+            const dataToSave = products.map(({selected, ...rest}) => rest);
+            
+            fetch('/api/products', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(dataToSave)
+            }).then(() => {
+                closeModal();
+                loadProducts(); // Reload from server to get clean data
+            }).catch(e => alert("Saqlashda xatolik!"));
+        }
+
+        function saveProduct() {
+            const idVal = document.getElementById('product-id').value;
+            
+            // Parse specs
+            const specsLines = document.getElementById('p-specs').value.split('\n');
+            const specs = specsLines
+                .filter(line => line.includes(':'))
+                .map(line => {
+                    const [key, ...valParts] = line.split(':');
+                    return { key: key.trim(), value: valParts.join(':').trim() };
+                });
+
+            // Parse gallery
+            const gallery = document.getElementById('p-gallery').value
+                .split(',')
+                .map(img => img.trim())
+                .filter(img => img.length > 0);
+
+            const newProduct = {
+                name: document.getElementById('p-name').value,
+                desc: document.getElementById('p-desc').value,
+                price: document.getElementById('p-price').value,
+                category: document.getElementById('p-category').value,
+                img: document.getElementById('p-img').value || 'https://via.placeholder.com/300',
+                gallery: gallery,
+                full_desc: document.getElementById('p-full-desc').value,
+                specs: specs,
+                video: document.getElementById('p-video').value,
+                id: (idVal !== '' && products[idVal]) ? products[idVal].id : Date.now()
+            };
+
+            if (newProduct.name.trim() === '') {
+                alert("Nomini kiriting!");
+                return;
+            }
+
+            if (idVal === '') {
+                products.push(newProduct);
+            } else {
+                newProduct.id = products[idVal].id;
+                products[idVal] = newProduct;
+            }
+
+            saveToServer();
+        }
+
+        function deleteProduct(index) {
+            if (confirm("Bu tovarni o'chirishni xohlaysizmi?")) {
+                products.splice(index, 1);
+                saveToServer();
+            }
+        }
+
+        function toggleSelectAll() {
+            const isChecked = document.getElementById('select-all').checked;
+            products.forEach(p => p.selected = isChecked);
+            renderTable();
+            updateBulkBtn();
+        }
+
+        function updateRowSelection(index, checkbox) {
+            products[index].selected = checkbox.checked;
+            updateBulkBtn();
+            
+            // Uncheck "Select All" if one is unchecked
+            if (!checkbox.checked) {
+                document.getElementById('select-all').checked = false;
+            }
+        }
+
+        function updateBulkBtn() {
+            const selectedCount = products.filter(p => p.selected).length;
+            const btn = document.getElementById('btn-bulk-delete');
+            btn.style.display = selectedCount > 0 ? 'flex' : 'none';
+        }
+
+        function deleteSelected() {
+            const count = products.filter(p => p.selected).length;
+            if (confirm(`${count} ta tanlangan tovarni o'chirishni xohlaysizmi?`)) {
+                products = products.filter(p => !p.selected);
+                saveToServer();
+                document.getElementById('select-all').checked = false;
+            }
+        }
+    </script>
+</body>
+</html>
